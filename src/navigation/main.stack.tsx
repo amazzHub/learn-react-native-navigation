@@ -1,5 +1,4 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import { HomeScreen } from '../screens/home.screen';
 import { NavigationContainer } from '@react-navigation/native';
 import { LoginScreen } from '../screens/login.screen';
 import { BottomTab } from './bottom.tab';

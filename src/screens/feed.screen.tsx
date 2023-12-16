@@ -4,10 +4,10 @@ type Props = {
 
 }
 
-export const HomeScreen: React.FC<Props> = (props) => {
+export const FeedScreen: React.FC<Props> = (props) => {
 
     return <View style={styles.container}>
-        <Text>Home Screen</Text>
+        <Text>Feed Screen</Text>
     </View>;
 };
 

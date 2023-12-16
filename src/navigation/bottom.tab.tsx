@@ -3,16 +3,16 @@ import { EmitterSubscription, Keyboard, Platform, StyleSheet, View, SafeAreaView
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { ParamListBase, useNavigation } from '@react-navigation/native';
-import { HomeStack } from './home.stack';
 import { colors } from '../constants/colors';
 import { Feather, AntDesign, Ionicons } from '@expo/vector-icons';
 import { AccountStack } from './account.stack';
 import { NotificationsStack } from './notifications.stack';
+import { HomeDrawer } from './drawer/home.drawer';
 
 const Tab = createBottomTabNavigator();
 
 const firstScreen: any = {
-    HomeStack: 'Home',
+    HomeDrawer: 'Home',
     NotificationsStack: 'Notifications',
     AccountStack: 'Account',
 };
@@ -20,17 +20,17 @@ const firstScreen: any = {
 
 const TabElement = ({ tab, onPress, selectedTab }: any) => {
 
-    let iconColor = 'rgba(63, 10, 114, 0.3)';
+    let iconColor = colors.inactive;
     let icon;
 
     if (selectedTab === tab.name) {
         iconColor = colors.primary;
     }
 
-    if (tab.name === 'HomeStack') {
+    if (tab.name === 'HomeDrawer') {
         icon = <Feather name="home" size={24} color={iconColor} />;
     } else if (tab.name === 'NotificationsStack') {
-        icon = <Ionicons name="notifications-outline" size={24} color={iconColor} />
+        icon = <Ionicons name="notifications-outline" size={26} color={iconColor} />
     } else if (tab.name === 'AccountStack') {
         icon = <AntDesign name="user" size={24} color={iconColor} />
     }
@@ -122,8 +122,8 @@ const TabBar = ({ state }: any) => {
 
 export const BottomTab = (): JSX.Element => {
 
-    return <Tab.Navigator initialRouteName='HomeStack' screenOptions={{ headerShown: false }} tabBar={(props: any) => <TabBar {...props} />}>
-        <Tab.Screen name="HomeStack" component={HomeStack} />
+    return <Tab.Navigator initialRouteName='HomeDrawer' screenOptions={{ headerShown: false }} tabBar={(props: any) => <TabBar {...props} />}>
+        <Tab.Screen name="HomeDrawer" component={HomeDrawer} />
         <Tab.Screen name="NotificationsStack" component={NotificationsStack} />
         <Tab.Screen name="AccountStack" component={AccountStack} />
     </Tab.Navigator>;
