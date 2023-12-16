@@ -13,7 +13,10 @@ export const LoginScreen: React.FC<Props> = (props) => {
     }
 
     return <View style={styles.container}>
-        <Button title='Log in' onPress={handleLogin} />
+        <Text style={styles.title}>React Native Navigation</Text>
+        <View style={styles.subContainer}>
+            <Button title='Log in' onPress={handleLogin} />
+        </View>
     </View>;
 };
 
@@ -21,8 +24,17 @@ const styles = StyleSheet.create(
     {
         container: {
             flex: 1,
-            justifyContent: 'center',
+            paddingTop: '25%',
             alignItems: 'center',
+        },
+        subContainer: {
+            flex: 1,
+            justifyContent: 'center'
+        },
+        title: {
+            fontSize: 35,
+            marginBottom: 25,
+            color: 'black',
         }
     }
 );
